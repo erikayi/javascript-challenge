@@ -14,7 +14,7 @@ var tableBody = d3.select("tbody");
 console.log(tableBody);
 
 // use forEach function to go through the data.js
-data.forEach(function (ufoReports) {
+tableData.forEach(function (ufoReports) {
 
     // check for errors
     console.log(ufoReports);
@@ -54,8 +54,8 @@ button.on("click", runEnter);
 ufoForm.on("submit", runEnter);
 
 // check for errors
-// console.log(ufoForm);
-// console.log(data);
+console.log(ufoForm);
+console.log(tableData);
 
 // create the function to run for events 
 function runEnter() {
@@ -69,14 +69,20 @@ function runEnter() {
     // get value property of the input info
     var inputUfoValue = inputUfoInfo.property("value");
 
+    // use the form input to filter the data by date
+    var filteredResult = tableData.filter(ufo => ufo.datetime === inputUfoValue);
+    
+    // check if it runs without errors
+    console.log(filteredResult);
+
     // print the value to the console log
 
-    console.log(inputUfoValue);
+    rows = d3.selectAll("tr>td").text(filteredResult);
 
-    rows = d3.selectAll("tr>td").text(inputUfoValue);
-
+    // removes the previous filtered table rows
     rows.exit().remove();
 
+    // append the new rows that the user inputs 
     rows.enter().append("tr");
 
 };
