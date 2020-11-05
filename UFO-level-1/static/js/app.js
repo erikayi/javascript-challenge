@@ -43,28 +43,34 @@ data.forEach(function (ufoReports) {
 // listen for events and search through 'date/time' column according to the user input
 // -----------------------------------------------------------------------------------
 
-// // select ufo form 
-// var ufoForm = d3.select("#ufoForm");
+// select ufo form 
+var ufoForm = d3.select("#ufoForm");
 
-// // select filter button
-// var button = d3.select(".btn btn-primary btn-lg");
+// select filter button
+var button = d3.select("#filter-btn");
 
-// // create event handlers for clicking the button or pressing the enter key on the keyboard
-// button.on("click", runEnter);
-// ufoForm.on("submit",runEnter);
+// create event handlers for clicking the button or pressing the enter key on the keyboard
+button.on("click", runEnter);
+ufoForm.on("submit", runEnter);
 
-// // create the function to run for events 
-// function runEnter() {
+// check for errors
+console.log(ufoForm);
+console.log(data);
 
-//     d3.event.preventDefault();
+// create the function to run for events 
+function runEnter() {
 
-//     var inputUfoInfo = d3.select("#datetime");
+    // prevent the page from refreshing
+    // d3.event.preventDefault();
 
-//     var inputUfoValue = inputUfoInfo.property("value");
+    // select input info and get raw html node
+    var inputUfoInfo = d3.select("#datetime");
 
-//     console.log(inputUfoValue);
+    // get value property of the input info
+    var inputUfoValue = inputUfoInfo.property("value");
 
-//     console.log(inputUfoValue);
+    // print the value to the console log
+    console.log(inputUfoValue);
 
-//     d3.select("#ufo-table>tr").text(inputUfoValue);
-// }
+    d3.select("#ufo-table>td").text(inputUfoValue === datetime);
+};
