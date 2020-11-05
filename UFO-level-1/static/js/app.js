@@ -7,6 +7,28 @@ var tableData = data;
 // append a table to the website, and adds new rows of data for each UFO sighting.
 // -----------------------------------------------------------------------------------
 
+//------------------------------------------------------------------------------------
+// OOPS, BELOW CODE DID NOT WORKED!
+//------------------------------------------------------------------------------------
+// convert dictionaries to the list within the data array
+// var convertedTableData = [];
+
+// for (var key in tableData) {
+//     if (tableData.hasOwnProperty(key)) {
+//         convertedTableData.push([key, tableData[key]]);
+//     }
+ // };
+
+// check for errors
+// console.log(convertedTableData);
+
+//------------------------------------------------------------------------------------
+// LET'S TRY BELOW ONE! BUT THIS DIDN'T WORKED AS WELL... '-')"
+//------------------------------------------------------------------------------------
+// var convertedTableData = Object.values(tableData);
+// console.log(convertedTableData);
+//------------------------------------------------------------------------------------
+
 // get a reference to the table body
 var tableBody = d3.select("tbody");
 
@@ -71,18 +93,33 @@ function runEnter() {
 
     // use the form input to filter the data by date
     var filteredResult = tableData.filter(ufo => ufo.datetime === inputUfoValue);
+
+    // append the filtered results to the filtered row
+    var filteredRow = filteredResult.append("tr");
+
+    // use `Object.entries` to console.log each filtered results
+    Object.entries(filteredResult).forEach(function ([key, value]) {
+
+        // check for errors
+        console.log(key, value);
+
+        // use d3 to append 1 cell per filtered ufo sightings values
+        var filteredCell = filteredRow.append("td");
+
+        // use d3 to update each cell text with filtered ufo sighting values
+        filteredCell.text(value);
+    });
     
-    // check if it runs without errors
-    console.log(filteredResult);
+    // // check if it runs without errors
+    // console.log(filteredRow);
 
-    // print the value to the console log
+    // // print the value to the console log
+    // rows = d3.selectAll("tr>td").text(filteredRow);
 
-    rows = d3.selectAll("tr>td").text(filteredResult);
+    // // removes the previous filtered table rows
+    // rows.exit().remove();
 
-    // removes the previous filtered table rows
-    rows.exit().remove();
-
-    // append the new rows that the user inputs 
-    rows.enter().append("tr");
+    // // append the new rows that the user inputs 
+    // rows.enter().append("tr");
 
 };
