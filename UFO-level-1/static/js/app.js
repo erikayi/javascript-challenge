@@ -54,14 +54,14 @@ button.on("click", runEnter);
 ufoForm.on("submit", runEnter);
 
 // check for errors
-console.log(ufoForm);
-console.log(data);
+// console.log(ufoForm);
+// console.log(data);
 
 // create the function to run for events 
 function runEnter() {
 
     // prevent the page from refreshing
-    // d3.event.preventDefault();
+    d3.event.preventDefault();
 
     // select input info and get raw html node
     var inputUfoInfo = d3.select("#datetime");
@@ -70,7 +70,8 @@ function runEnter() {
     var inputUfoValue = inputUfoInfo.property("value");
 
     // print the value to the console log
+
     console.log(inputUfoValue);
 
-    d3.select("#ufo-table>td").text(inputUfoValue === datetime);
+    d3.select("#ufo-table>td").text(inputUfoValue);
 };
