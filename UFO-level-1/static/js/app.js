@@ -73,5 +73,10 @@ function runEnter() {
 
     console.log(inputUfoValue);
 
-    d3.select("#ufo-table>td").text(inputUfoValue);
+    rows = d3.selectAll("tr>td").text(inputUfoValue);
+
+    rows.exit().remove();
+
+    rows.enter().append("tr");
+
 };
