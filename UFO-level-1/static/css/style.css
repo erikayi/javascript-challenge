@@ -8,6 +8,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: white;
 }
 
 /* The footer is positioned at the bottom of the page */
@@ -68,7 +69,7 @@ body {
 .hero1 h1 {
   margin-top: 80px;
   color: white;
-  font-size: 0.05 rem;
+  font-size: 5px;
   animation: title 1.2s forwards linear;
 }
 
@@ -106,6 +107,14 @@ body {
   #table-area td {
     font-size: 1em;
   }
+}
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
 }
 
 @media (max-width: 500px) {

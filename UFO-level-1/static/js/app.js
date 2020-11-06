@@ -52,7 +52,7 @@ tableData.forEach(function (ufoReports) {
         var cell = row.append("td");
 
         // use d3 to update each cell text with ufo sightings values
-        cell.text(key, value);
+        cell.text(value);
 
     });
 
