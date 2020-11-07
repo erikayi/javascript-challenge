@@ -9,13 +9,13 @@ var tableData = data;
 var tableBody = d3.select("tbody");
 
 // check for errors
-// console.log(tableBody);
+console.log(tableBody);
 
 // use forEach function to go through the data.js
 tableData.forEach(function (ufoReports) {
 
     // check for errors
-    // console.log(ufoReports);
+    console.log(ufoReports);
 
     // try to add one 'tr' and append to the table using d3
     var row = tableBody.append("tr");
@@ -24,7 +24,7 @@ tableData.forEach(function (ufoReports) {
     Object.entries(ufoReports).forEach(function ([key, value]) {
 
         // check for errors
-        // console.log(key, value);
+        console.log(key, value);
 
         // use d3 to append 1 cell per ufo sightings values 
         var cell = row.append("td");
@@ -51,90 +51,60 @@ filterButton.on("click", runEnter);
 ufoForm.on("submit", runEnter);
 
 // check for errors
-// console.log(ufoForm);
-// console.log(tableData);
-
-// update table with a new dataset
-function updateTable(tableData) {
-    tableBody.html('');
-    tableData.forEach((InsertnewData) => {
-        var filteredRows = tableBody.append("tr");
-        Object.entries(InsertnewData).forEach(([key, value]) => {
-            var cellInputs = tableBody.append("td");
-            cellInputs.text(value);
-        });
-    });
-}
-
-// filter date function (just compare a string)
-function filterByDate(tableData) {
-    var filteredufoData = tableData.filter(function (date) {
-        return date.datetime === $('#datetime').val();
-    });
-    return filteredufoData;
-}
-
-// start here
-// first update table of original data 
-updateTable(tableData);
-submit.on("click", function() {
-    // when filter is clicked
-    // filter data by datetime and udpate the table
-    var result = filterByDate(tableData);
-    updateTable(result);
-});
+console.log(ufoForm);
+console.log(tableData);
 
 //----------------------------------------------------------------------------------
 // BELOW FUNCTION WILL APPEND ITS FILTERED DATA ONTO THE EXISTING DATA
-// BUT WE WANT TO SHOW ONLY FILTERED DATA, ONCE WE INPUTTED....
+// LISTENS TO THE EVENT IN THE CONSOLE.LOG
 // ---------------------------------------------------------------------------------
 
-
 // create the function to run for events 
-// function runEnter() {
+function runEnter() {
 
     // prevent the page from refreshing
-    // d3.event.preventDefault();
+    d3.event.preventDefault();
 
     // select input info and get raw html node
-    // var inputUfoInfo = d3.select("#datetime");
+    var inputUfoInfo = d3.select("#datetime");
 
     // get value property of the input info
-    // var inputUfoValue = inputUfoInfo.property("value");
-    
+    var inputUfoValue = inputUfoInfo.property("value");
+
 
     // use forEach function to go through the data.js
-    // tableData.filter(function (results) {
+    tableData.filter(function (results) {
 
-    //     if (inputUfoValue === results.datetime) {
+        if (inputUfoValue === results.datetime) {
 
             // check for errors
-            // console.log(results);
+            console.log(results);
 
             // try to add one 'tr' and append to the table using d3
-            // var filteredRow = tableBody.append("tr");
+            var filteredRow = tableBody.append("tr");
 
             // use `Object.entries` to console.log each filtered ufo report values
-            // Object.entries(results).forEach(function ([key, value]) {
+            Object.entries(results).forEach(function ([key, value]) {
 
                 // check for errors
-                // console.log(key, value);
+                console.log(key, value);
 
                 // use d3 to append 1 cell per filtered ufo sightings value
-                // var filteredCell = filteredRow.append("td");
+                var filteredCell = filteredRow.append("td");
 
                 // use d3 to update each cell text with filtered ufo sightings value
-                // filteredCell.text(value);
+                filteredCell.text(value);
 
                 // removes the previous filtered table rows
-                // filteredCell.exit().remove();
+                filteredCell.exit().remove();
 
                 // append the new rows that the user inputs 
-//                 filteredCell.enter().append("td");
+                filteredCell.enter().append("td");
 
-//             });
-//         };
+            });
+        };
 
-//     });
+    });
 
-// };
+};
+
