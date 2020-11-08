@@ -21,7 +21,9 @@
 
   <div class="jumbotron jumbotron-fluid text-center">
     <div class="hero1 text-center">
-      <a href="index.html"><h1 class="display-4">UFO Sightings</h1></a>
+      <a href="index.html">
+        <h1 class="display-4">UFO Sightings</h1>
+      </a>
       <p class="lead">UFOs: Time is the ultimate teller of truths.</p>
     </div>
   </div>
@@ -43,33 +45,36 @@
                   </ul>
                 </div>
                 <button id="filter-btn" type="button" class="btn btn-primary btn-lg">Filter</button>
-                <select id="dates" onchange="filterUfo(this.value)">
-                  <option value="datetime">Date/Time</option>
-                </select>
-                <select id="cities" onchange="filterUfo(this.value)">
-                  <option value="city">City</option>
-                </select>
-                <select id="states" onchange="filterUfo(this.value)">
-                  <option value="state">Country</option>
-                </select>
-                <select id="countries" onchange="filterUfo(this.value)">
-                  <option value="country">Country</option>
-                </select>
-                <select id="shapes" onchange="filterUfo(this.value)">
-                  <option value="shape">Shape</option>
-                </select>
-                <select id="durationMinuteses" onchange="filterUfo(this.value)">
-                  <option value="durationMinutes">Duration</option>
-                </select>
-                <select id="commentses" onchange="filterUfo(this.value)">
-                  <option value="comments">Comments</option>
-                </select>
+
+                <div class="dropdownMenu">
+                  <select type="button" class="btn btn-secondary btn-lg" id="dates">
+                    <option value="datetime">Date/Time</option>
+                  </select>
+                  <select type="button" class="btn btn-secondary btn-lg" id="cities">
+                    <option value="city">City</option>
+                  </select>
+                  <select type="button" class="btn btn-secondary btn-lg" id="states">
+                    <option value="state">State</option>
+                  </select>
+                  <select type="button" class="btn btn-secondary btn-lg" id="countries">
+                    <option value="country">Country</option>
+                  </select>
+                  <select type="button" class="btn btn-secondary btn-lg" id="shapes">
+                    <option value="shape">Shape</option>
+                  </select>
+                  <select type="button" class="btn btn-secondary btn-lg" id="durationMinute">
+                    <option value="durationMinutes">Duration</option>
+                  </select>
+                  <select type="button" class="btn btn-secondary btn-lg" id="comment">
+                    <option value="comments">Comments</option>
+                  </select>
+                </div>
+
               </form>
             </div>
           </div>
         </aside>
       </div>
-
       <div class="col-md-12">
         <div id="table-area" class="">
           <table id="ufo-table" class="table table-info">
@@ -95,7 +100,7 @@
     <div class="row">
       <div class="text-center col-lg-6 offset-lg-3">
         <p class="footer">Copyright &copy; 2020 &middot; Erika Yi &middot; All Rights Reserved &middot; <a
-            href="https://erikayi.github.io/">My Website</a></p>
+            href="https://erikayi.github.io/">My Github Site</a></p>
       </div>
     </div>
   </div>

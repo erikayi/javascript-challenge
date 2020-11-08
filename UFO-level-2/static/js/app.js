@@ -113,55 +113,26 @@ function runEnter() {
 // ----------------------------------------------------------------------------------
 
 // Create an array of each sub categories
-var datetime = Object.values(tableData.datetime);
-var city = Object.values(tableData.city);
-var state = Object.values(tableData.state);
-var country = Object.values(tableData.country);
-var shape = Object.values(tableData.shape);
-var duration = Object.values(tableData.durationMinutes);
-var comments = Object.values(tableData.comments);
+// var datetime = Object.values(tableData.datetime);
+// var city = Object.values(tableData.city);
+// var state = Object.values(tableData.state);
+// var country = Object.values(tableData.country);
+// var shape = Object.values(tableData.shape);
+// var duration = Object.values(tableData.durationMinutes);
+// var comments = Object.values(tableData.comments);
 
-d3.selectAll("#dates").on("change", filterUfo);
-d3.selectAll("#cities").on("change", filterUfo);
-d3.selectAll("#states").on("change", filterUfo);
-d3.selectAll("#countries").on("change", filterUfo);
-d3.selectAll("#shapes").on("change", filterUfo);
-d3.selectAll("#durationMinuteses").on("change", filterUfo);
-d3.selectAll("#commentses").on("change", filterUfo);
+// from data.js
+var tableData = data;
 
-function filterUfo() {
-
-    var dropdownMenu = [
-        d3.select("#dates"),
-        d3.select("#dates"),
-        d3.select("#dates"),
-        d3.select("#dates"),
-        d3.select("#dates"),
-        d3.select("#dates"),
-    ]
-    var dataset = dropdownMenu.property("value");
-
-    var data = [];
-
-    if (dataset == 'UnitedStates') {
-        data = us;
+function filterDate(date) {
+    if (date.length == 0) {
+        document.getElementById("dates").innerHTML = "<option></option>";
     }
-    else if (dataset == 'Canada') {
-        data = canada;
+    else {
+        var dateOptions = "";
+        for (categoryDate in tableData[date]) {
+            dateOptions += "<option>" + tableData[date][categoryDate] + "</option>";
+        }
+        document.getElementById("dates").innerHTML = dateOptions;
     }
-    else if (dataset == 'UnitedKingdom') {
-        data = uk;
-    }
-
-    updatePlotly(data);
-
 }
-
-function updatePlotly(newdata) {
-    Plotly.restyle("pie", "values", [newdata]);
-}
-
-
-music();
-
-

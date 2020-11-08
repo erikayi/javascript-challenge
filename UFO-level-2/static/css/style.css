@@ -56,11 +56,11 @@ body {
 /* The styles for the parallax */
 .hero1 {
   position: relative;
-  height: 350px;
-  padding: 20px;
+  height: 500px;
+  padding: 50px;
   margin: 0;
   background: white;
-  background-image: url("../images/mocha-cotton-full-zerochan.jpg");
+  background-image: url("../images/image.png");
   background-attachment: fixed;
   background-position: bottom center;
   background-size: cover;
@@ -196,7 +196,8 @@ body {
 }
 
 #filter-btn {
-	margin-bottom: 25px;
+  margin-left: 15px;
+	margin-bottom: 20px;
 	font-size: 18px;
 	text-transform: uppercase;
 }

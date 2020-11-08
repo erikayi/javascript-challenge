@@ -56,8 +56,8 @@ body {
 /* The styles for the parallax */
 .hero1 {
   position: relative;
-  height: 350px;
-  padding: 20px;
+  height: 500px;
+  padding: 50px;
   margin: 0;
   background: white;
   background-image: url("../images/mocha-cotton-full-zerochan.jpg");
