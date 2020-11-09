@@ -110,29 +110,18 @@ function runEnter() {
 
 // ----------------------------------------------------------------------------------
 // DROPDOWN MENU FOR FILTERING DATE/TIME, CITY, STATE, COUNTRY, SHAPE, & COMMENTS
+// STILL WORKING ON THE PROGRESS...
 // ----------------------------------------------------------------------------------
 
-// Create an array of each sub categories
-// var datetime = Object.values(tableData.datetime);
-// var city = Object.values(tableData.city);
-// var state = Object.values(tableData.state);
-// var country = Object.values(tableData.country);
-// var shape = Object.values(tableData.shape);
-// var duration = Object.values(tableData.durationMinutes);
-// var comments = Object.values(tableData.comments);
+function datetimeList(tableData, response) {
 
-// from data.js
-var tableData = data;
+    var ufoTable = document.getElementById("ufo-table");
+    for (var i = 0; i < tableData.datetime.length; i++) {
+           var row = ufoTable.insertRow(1);
+           var cell1 = row.insertCell(0);
+           var cell2 = row.insertCell(1);
+           cell1 = "tableData.datetime[i].datetime";
+           cell2.innerHTML = '<a href="javascript:void(0);" onclick="readProducts(' + tableData.datetime[i].STATION_ID + ')">' + tableData.datetime[i].datetime + '</a>';
 
-function filterDate(date) {
-    if (date.length == 0) {
-        document.getElementById("dates").innerHTML = "<option></option>";
-    }
-    else {
-        var dateOptions = "";
-        for (categoryDate in tableData[date]) {
-            dateOptions += "<option>" + tableData[date][categoryDate] + "</option>";
-        }
-        document.getElementById("dates").innerHTML = dateOptions;
-    }
-}
+       }
+   }
