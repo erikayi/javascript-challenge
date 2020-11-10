@@ -23,10 +23,9 @@ it will write in the console.
 
 ### Part II
 
-### This is working in progress...
-* Create multiple select dropdowns using Bootstrap Buttons in the HTML and
-Javascript code, so that the user can also search through the table just by
-clicking each filter of the table based on the table's columns. 
+* Created search bar using JQuery function in the Javascript code, and so that 
+the user can filter through specific dates, cities, states, countries, shapes,
+duration in minutes, shapes, and/or comments in the table provided.
 
 * Here is the working site for Part II: https://erikayi.github.io/ufo-sighting-option2/
 

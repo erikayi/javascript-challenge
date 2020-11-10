@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UFO Finder</title>
 
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://bootswatch.com/3/paper/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -44,35 +47,51 @@
                     </li>
                   </ul>
                 </div>
+
                 <button id="filter-btn" type="button" class="btn btn-primary btn-lg">Filter</button>
 
-                <div class="dropdownMenu">
-                  <select type="button" class="btn btn-secondary btn-lg" id="dates">
-                    <option id="datefilter" value="datetime">Date/Time</option>
-                  </select>
-                  <select type="button" class="btn btn-secondary btn-lg" id="cities">
-                    <option value="city">City</option>
-                  </select>
-                  <select type="button" class="btn btn-secondary btn-lg" id="states">
-                    <option value="state">State</option>
-                  </select>
-                  <select type="button" class="btn btn-secondary btn-lg" id="countries">
-                    <option value="country">Country</option>
-                  </select>
-                  <select type="button" class="btn btn-secondary btn-lg" id="shapes">
-                    <option value="shape">Shape</option>
-                  </select>
-                  <select type="button" class="btn btn-secondary btn-lg" id="durationMinute">
-                    <option value="durationMinutes">Duration</option>
-                  </select>
-                  <select type="button" class="btn btn-secondary btn-lg" id="comment">
-                    <option value="comments">Comments</option>
-                  </select>
-                </div>
+                <hr>
 
-              </form>
+                <div class="panel-heading">Search By Categories:</div>
+                <div class="panel-body">
+                  <form id="ufoForm">
+                    <div class="form-group">
+                      <ul class="list-group" id="filters">
+                        <li class="filter list-group-item">
+                          <input class="form-control" id="myInput" type="text"
+                            placeholder="Type in each dedicated dates, cities, states, countries, shapes, duration, or comments...">
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- COMMENTED OUT DROPDOWN MENU, SINCE THIS ONE DIDN'T WORKED OUT I IMAGINED -->
+                    <!-- <div class="dropdownMenu">
+                      <select type="button" class="btn btn-secondary btn-lg" id="dates">
+                        <option id="datefilter" value="datetime">Date/Time</option>
+                      </select>
+                      <select type="button" class="btn btn-secondary btn-lg" id="cities">
+                        <option value="city">City</option>
+                      </select>
+                      <select type="button" class="btn btn-secondary btn-lg" id="states">
+                        <option value="state">State</option>
+                      </select>
+                      <select type="button" class="btn btn-secondary btn-lg" id="countries">
+                        <option value="country">Country</option>
+                      </select>
+                      <select type="button" class="btn btn-secondary btn-lg" id="shapes">
+                        <option value="shape">Shape</option>
+                      </select>
+                      <select type="button" class="btn btn-secondary btn-lg" id="durationMinute">
+                        <option value="durationMinutes">Duration</option>
+                      </select>
+                      <select type="button" class="btn btn-secondary btn-lg" id="comment">
+                        <option value="comments">Comments</option>
+                      </select>
+                    </div> -->
+
+                  </form>
+                </div>
             </div>
-          </div>
         </aside>
       </div>
       <div class="col-md-12">

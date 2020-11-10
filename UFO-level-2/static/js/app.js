@@ -113,15 +113,18 @@ function runEnter() {
 // STILL WORKING ON THE PROGRESS...
 // ----------------------------------------------------------------------------------
 
-function datetimeList(tableData, response) {
+// ------------------------------------------------------------------------------------------
+// UPDATES: 
+// LET'S TYPE IN AND SEARCH BY DATES, CITIES, STATES, COUNTRIES, SHAPES, DURATION, & COMMENTS
+// THIS ONE WORKS BETTER THAN DROPDOWN MENU 
+// ------------------------------------------------------------------------------------------
 
-    var ufoTable = document.getElementById("ufo-table");
-    for (var i = 0; i < tableData.datetime.length; i++) {
-           var row = ufoTable.insertRow(1);
-           var cell1 = row.insertCell(0);
-           var cell2 = row.insertCell(1);
-           cell1 = "tableData.datetime[i].datetime";
-           cell2.innerHTML = '<a href="javascript:void(0);" onclick="readProducts(' + tableData.datetime[i].STATION_ID + ')">' + tableData.datetime[i].datetime + '</a>';
+$(tableBody).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#ufo-table tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
 
-       }
-   }
